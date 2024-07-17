@@ -1,0 +1,12 @@
+{% extends 'base/index.html' %}
+{% load static %}
+
+{% block content %}
+<img src="{% static 'images/banner.jpg' %}" class="imageBanner" alt="">
+<h1>About</h1>
+<div class="container">
+    {% for contact in contacts %}
+    <p>{{contact.formContact_name}} {{contact.formContact_surname}}</p>
+    {% endfor %}
+</div>
+{% endblock %}

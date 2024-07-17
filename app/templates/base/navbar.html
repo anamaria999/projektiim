@@ -1,0 +1,60 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="{% url 'homePage' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'aboutPage' %}">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'contactPage' %}">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href=" #" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Category
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% for category in categories %}
+                        <li><a class="dropdown-item"
+                                href="{% url 'detailCategoryPage' category.pk %}">{{category.category_name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'accessLoginPage' %}">Access Login</a>
+                </li>
+            </ul>
+            <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'images/logo.png' %}"
+                    alt="logo"></a>
+            <div class="d-flex">
+                {% if request.user.is_authenticated %}
+                <div class="g-3">
+                    <a class="btn btn-success" href="{% url 'logout' %}">Logout</a>
+
+                    <a class="btn btn-success">Welcome, {{request.user.username}}</a>
+                </div>
+                {% else %}
+                <div class="g-3">
+                    <a class="btn btn-success" href="{% url 'registerPage' %}">Register</a>
+                    <a class="btn btn-success" href="{% url 'loginPage' %}">Login</a>
+                </div>
+                {% endif %}
+            </div>
+            <!-- <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+                        </form> -->
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'base/index.html' %}
+{% load static %}
+{% block title %} Category Products {% endblock %}
+{% block content %}
+<!-- Info Category -->
+<div class="container-fluid px-0 position-relative">
+    <div class="cover">
+        <img src="{{categoryDetail.category_image.url}}" alt="" class="img-fluid">
+    </div>
+    <div class="position-absolute w-50 top-50 start-50 translate-middle text-center">
+        <h2 class="text-white display-1">{{categoryDetail.category_name}}
+        </h2>
+    </div>
+</div>
+<!-- end info category -->
+<!-- Category products -->
+<div class="container my-5">
+    <div class="row">
+        {% for product in categoryProducts %}
+        <div class="col-12 col-md-6 col-lg-3 mt-2 mt-lg-5">
+            <div class="card">
+                <img src="{{product.product_image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.product_title}}
+                        <i class="fa-regular fa-heart heart"></i>
+                    </h5>
+                    <p class="card-text">{{product.product_description}}</p>
+                    {% comment %}
+                    <a href="{% url 'detailProductPage' product.pk %}" class="btn btn-primary">Go somewhere</a>
+                    {% endcomment %}
+                    <a href="{% url 'detailProductPage' product.product_slug %}" class="btn btn-primary">Go
+                        somewhere</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- end Category products -->
+{% endblock %}

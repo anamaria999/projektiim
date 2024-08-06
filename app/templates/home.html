@@ -1,85 +1,251 @@
-{% extends 'base/index.html' %}
+<!DOCTYPE html>
 {% load static %}
+<html lang="en">
 
-{% block content %}
-<!-- <img src="images/banner.jpg" class="img-fluid" alt=""> -->
-<!-- Nis carousel -->
-<div id="carouselExampleCaptions" class="carousel slide">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{% static 'images/banner.jpg' %}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/img1.jpg' %}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/img2.jpg' %}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- fund carousel -->
-<!-- Nis seksion 1-->
-<h1 class="text-center my-5 pt-5 display-1">Elementet - Produkte; Sherbime; Kategori</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Ikona fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <img src="{% static 'images/banner.jpg' %}" class="img-fluid" alt="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+    <!-- nis navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="{% url 'homePage' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'aboutPage' %}">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'contactPage' %}">Contact</a>
+                    </li>
+                    
+                </ul>
+                <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+                
+            </div>
         </div>
-        <div class="col">
-            <h2>About</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus optio dolore doloribus laborum
-                dolores quisquam mollitia voluptatem, aperiam, consequatur nesciunt sit officia est ducimus harum
-                quae reprehenderit dolorem! A, temporibus?</p>
-            <a href="about.html" class="btn btn-primary">Learn more</a>
+
+
+    </nav>
+    <!-- fund navbar -->
+
+
+
+    
+    <!-- Nis carousel -->
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'images/sel1.jpg' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>"Be a Reason Someone Smiles"</h5>
+                    <p>Flowers are beautiful and are a reason someone smiles, whether it’s on their brightest day or darkest day, or just a normal day. We use flowers to celebrate life and achievements. We give flowers as pick-me-ups and comfort. Flowers can show you were thinking of someone.</p>
+                </div>
+            </div>
+
+
+            <div class="carousel-item">
+                <img src="{% static 'images/cr4.JPG' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>"A Gift for Others, a Gift for Yourself"</h5>
+                    <p>Flowers remind you that it is okay to celebrate and treat yourself as well as you treat others. Buy yourself flowers to bring nature into your home and celebrate yourself. Having fresh flowers in your home can boost your mood and reduce stress levels. </p>
+                </div>
+            </div>
+
+
+            <div class="carousel-item">
+                <img src="{% static 'images/cr11.JPG' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>"Nurture that Quiet Strength"</h5>
+                    <p>Flowers may seem delicate and fragile, but in reality, they possess a quiet strength that is often overlooked. These beautiful plants have the ability to thrive in a variety of environments, from harsh deserts to lush rainforests, and they do so with grace and resilience. </p>
+                </div>
+            </div>
+
+
+            <div class="carousel-item">
+                <img src="{% static 'images/cr9.JPG' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>"Know What You Need to Thrive"</h5>
+                    <p>Get to know yourself so that you can keep yourself healthy and flourishing. This life lesson from flowers asks you to make time for self-reflection and accept that your needs may well be different from others, and that doesn’t make them “wrong”.</p>
+                </div>
+            </div>
+
+
+            <div class="carousel-item">
+                <img src="{% static 'images/cr10.JPG' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>"Diversity is Beautiful"</h5>
+                    <p>The diversity in looks, colours, sizes, smells and textures of flowers is what them so interesting. Just as flowers come in all shapes, sizes, and colors, the world is full of unique people, places, and experiences. A flower grows into the flower it is, it doesn’t try to be a different one.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- fund carousel -->
+
+
+
+
+    <!-- Nis seksion 1-->
+    <h1 class="text-center my-5 pt-5 display-1"> B L O O M </h1>
+
+    <div class="container">
+        <div class="row">
+                <br>
+                <br>
+
+                <section id="about">
+                    <h2>The Healing Power of Flowers: A Look at Floral Therapy</h2>
+                    <p>Flowers possess an incredible ability to uplift our spirits and soothe our souls, making them more than just beautiful decorations. In this blog post, we'll explore floral therapy—a practice deeply rooted in ancient wisdom—and how it can positively impact our mental and emotional well-being.
+                        Floral therapy, also known as flower essence therapy or flower remedies, finds its roots in ancient traditions across cultures. One notable pioneer in this field is Dr. Edward Bach, who developed Bach flower remedies in the early 20th century.
+                        Unleash the healing power of nature's creations with The Daily Blooms. Your emotional well-being may blossom in ways you never imagined, guided by the therapeutic embrace of flowers. </p>
+                </section>
+
+            </div>
         </div>
     </div>
-</div>
-<!-- fund seksion 1-->
-<!-- Nis seksioni 2 -->
-<div class="container-fluid">
-    <div class="row">
-        {% for product in products_Key %}
-        <div class="col-12 col-md-6 col-lg-3 mt-2 mt-lg-5">
-            <div class="card">
-                <img src="{{product.product_image.url}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{product.product_title}}
-                        <i class="fa-regular fa-heart heart"></i>
-                    </h5>
-                    <p class="card-text">{{product.product_description}}</p>
-                    {% comment %}
-                    <a href="{% url 'detailProductPage' product.pk %}" class="btn btn-primary">Go somewhere</a>
-                    {% endcomment %}
-                    <a href="{% url 'detailProductPage' product.product_slug %}" class="btn btn-primary">Go
-                        somewhere</a>
+
+    <br>
+    <br>
+
+    <!-- fund seksion 1-->
+
+
+
+
+    <!-- Nis seksioni 2 -->
+
+    <section id="shop">
+        <h2>What Will Be Your Pick For Today</h2>
+        <p>Experience lasting comfort with preserved blooms that retain their vibrant colors and beauty.</p>
+        <br>
+        <div class="products">
+
+    {% for flower in products_Key|slice:"0:3" %}
+            <div class="product">
+                <img src="{{flower.product_image.url}}" class="img-fluid" alt="Flower Bouquets">
+                <h3>{{flower.product_title}}</h3>
+                <p>{{flower.product_description}}</p>
+                <a href="{% url 'flowerPage' %}"><button>Shop Now</button></a>
+                
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- fund seksioni 2 -->
+
+
+
+
+
+
+    <!-- nis footer -->
+
+
+    <footer class="footer bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <section id="about">
+                    <h5>CONTACT</h5>
+                    <p>069.999.999</p>
+                    <p>info@bloomshop.com</p>
+                    <p>Rruga Artan Lenja, 21 Dhjetori<br>Tirana, 1001</p>
+                </section>
+                </div>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <section id="about">
+                    <h5>HOURS</h5>
+                    <p><em>by appointment only</em></p>
+                    <p>Tues, Thurs, & Fri | 11AM-5PM</p>
+                    <p>Wed & Sat | 11AM-7PM</p>
+                    <p>CLOSED SUNDAY & MONDAY</p>
+                </section>
+                </div>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <section id="about">
+                    <h5>INFORMATION</h5>
+                    <p><a href="#">Contact Us</a></p>
+                    <p><a href="{% url 'aboutPage' %}">About Us</a></p>
+                    <p><a href="#">Terms & Conditions</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                </section>
                 </div>
             </div>
         </div>
-        {% endfor %}
-    </div>
-</div>
-<!-- fund seksioni 2 -->
+    </footer>
 
-<!-- Pas disa seksioneve -->
-{% endblock %}
+<!-- fund footer -->
+
+
+
+
+    <!-- JS Bootstrap -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- jquery -->
+    <script src="{% static 'js/jQuery.js' %}"></script>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/functionjQuery.js' %}"></script>
+
+    <!-- JS -->
+    <script src="{% static 'js/index.js' %}"></script>
+
+
+</body>
+
+</html>

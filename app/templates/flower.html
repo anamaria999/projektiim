@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Ikona fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+    <!-- nis navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="{% url 'homePage' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'aboutPage' %}">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'contactPage' %}">Contact</a>
+                    </li>
+                    
+                </ul>
+                <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+                
+            </div>
+        </div>
+
+
+    </nav>
+    <!-- fund navbar -->
+
+
+    
+
+    <!-- Nis seksioni 2 -->
+
+    <section id="shops">
+
+        <h2>Shop Our Flower Bouquets</h2>
+        <p>Giving someone a bouquet of beautiful blossoms can be seen as an expression of deep affection and care, conveying tender emotions that can sometimes be difficult to put into words.</p>
+    </section>
+    <div class="border-line"></div>
+    <!-- fund seksioni 2 -->
+
+    <body>
+        <div class="containerwedding">
+            {% for flower in products_Key|slice:"3:" %}
+            <div class="card">
+                <img src="{{flower.product_image.url}}" class="img-fluid" alt="Flower Bouquets">
+                <h2>{{flower.product_title}}</h2>
+                <p>{{flower.product_price}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+
+
+    <!-- nis footer -->
+
+    <footer class="footer bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <h5>CONTACT</h5>
+                    <p>069.999.999</p>
+                    <p><a href="mailto:info@bloomshop.com">info@bloomshop.com</a></p>
+                    <p>Rruga Artan Lenja, 21 Dhjetori<br>Tirana, 1001</p>
+                </div>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <h5>HOURS</h5>
+                    <p><em>by appointment only</em></p>
+                    <p>Tues, Thurs, & Fri | 11AM-5PM</p>
+                    <p>Wed & Sat | 11AM-7PM</p>
+                    <p>CLOSED SUNDAY & MONDAY</p>
+                </div>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <h5>INFORMATION</h5>
+                    <p><a href="#">Contact Us</a></p>
+                    <p><a href="{% url 'aboutPage' %}">About Us</a></p>
+                    <p><a href="#">Terms & Conditions</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- fund footer -->
+
+
+
+   
+    <!-- JS Bootstrap -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- jquery -->
+    <script src="{% static 'js/jQuery.js' %}"></script>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/functionjQuery.js' %}"></script>
+    
+    <!-- JS -->
+    <script src="{% static 'js/index.js' %}"></script>
+
+
+</body>
+
+</html>

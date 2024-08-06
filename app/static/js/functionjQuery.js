@@ -50,7 +50,7 @@ $(document).ready(function () {
         let heightWindow = $(window).scrollTop()
         console.log(heightWindow)
         if (heightWindow > 400) {
-            nav.css("background-color", "cadetblue")
+            nav.css("background-color", "rgb(104, 70, 39)")
         } else {
             nav.css("background-color", "transparent")
         }

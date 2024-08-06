@@ -1,42 +1,140 @@
-{% extends 'base/index.html' %}
+<!DOCTYPE html>
 {% load static %}
+<html lang="en">
 
-{% block content %}
-<!-- Nis form -->
-<img src="{% static 'images/banner.jpg' %}" class="imageBanner" alt="">
-<div class="container mt-5 ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- CSS  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <form class="" method="POST">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
-        {% csrf_token %}
-        <div class="mb-3">
-            <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" name="firstName">
+</head>
+
+<body>
+
+
+
+    <!-- nis navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="{% url 'homePage' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'aboutPage' %}">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'contactPage' %}">Contact</a>
+                    </li>
+                    
+                </ul>
+                <a class="navbar-brand" href="{% url 'homePage' %}"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+                
+            </div>
         </div>
-        <div class="mb-3">
 
-            <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" name="lastName">
-        </div>
-        <div class=" mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" name="email">
-        </div>
-        <div class="mb-3">
-            <label for="comment" class="form-label">Comment</label>
-            <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
-        </div>
-        <input type="submit" value="Send" class="btn btn-success">
-    </form>
 
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert sms alert-{{message.tags}}{% if message.tag == 'error' %} bg-danger-subtle text-emphasis-danger {% endif %}"
-        role="alert">
-        {{message}}
+    </nav>
+    <!-- fund navbar -->
+
+
+    
+    <!-- Nis form -->
+    <div class="container mt-5 pt-5">
+        <form class="mt-5 pt-5" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name:</label>
+                <input type="text" class="form-control" id="firstName" name="firstName">
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" name="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address:</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Comment:</label>
+                <textarea class="form-control" id="comment" rows="3" name="comment"></textarea>
+            </div>
+            <input type="submit" style="background-color: rgb(248, 182, 167)" border="none" value="Send" class="btn btn-success">
+        </form>
+
+        <div class="alert sms" role="alert">
+
+        </div>
     </div>
-    {% endfor %}
-    {% endif %}
-</div>
+    <!-- fund form -->
 
-{% endblock %}
+    <!-- nis footer -->
+
+
+    <footer class="footer bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <section id="about">
+                    <h5>CONTACT</h5>
+                    <p>069.999.999</p>
+                    <p>info@bloomshop.com</p>
+                    <p>Rruga Artan Lenja, 21 Dhjetori<br>Tirana, 1001</p>
+                </section>
+                </div>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <section id="about">
+                    <h5>HOURS</h5>
+                    <p><em>by appointment only</em></p>
+                    <p>Tues, Thurs, & Fri | 11AM-5PM</p>
+                    <p>Wed & Sat | 11AM-7PM</p>
+                    <p>CLOSED SUNDAY & MONDAY</p>
+                </section>
+                </div>
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <section id="about">
+                    <h5>INFORMATION</h5>
+                    <p><a href="#">Contact Us</a></p>
+                    <p><a href="{% url 'aboutPage' %}">About Us</a></p>
+                    <p><a href="#">Terms & Conditions</a></p>
+                    <p><a href="#">Privacy Policy</a></p>
+                </section>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- fund footer -->
+
+
+    <!-- JS Bootstrap -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- jquery -->
+    <script src="{% static 'js/jQuery.js' %}"></script>
+
+    <!-- jQuery -->
+    <script src="{% static 'js/functionjQuery.js' %}"></script>
+    
+    <!-- JS -->
+    <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+
+</html>

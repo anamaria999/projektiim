@@ -4,20 +4,33 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 def home(request):
     products = Product.objects.all()
-    categories = Category.objects.all()
-    context = {"products_Key":products, "categories": categories}
+    context = {"products_Key":products}
     return render(request, 'home.html', context)
 
 def about(request):
-    contacts = FormContact.objects.all()
-    categories = Category.objects.all()
-    context = {"contacts":contacts, "categories": categories}
+    context = {"contacts":contacts}
     return render(request, 'about.html', context)
 
+def arrangements(request):
+ 
+    context = {}
+    return render(request, 'arrangements.html', context)
+
+def flower(request):
+    products = Product.objects.all()
+    context = {"products_Key":products}
+    return render(request, 'flower.html', context)
+
+def wedding(request):
+    contacts = FormContact.objects.all()
+    context = {"contacts":contacts}
+    return render(request, 'wedding.html', context)
+
+
 def contact(request):
-    categories = Category.objects.all()
     if request.method == "POST":
         name = request.POST['firstName']
         surname = request.POST['lastName']
@@ -33,7 +46,7 @@ def contact(request):
             messages.success(request, 'Message sended!!!')
         else:
             messages.error(request, 'Message not sended!!!')
-    context = {"categories": categories}
+    context = {}
     return render(request, 'contact.html', context)
 
 # def detailProduct(request, id):
@@ -42,23 +55,20 @@ def contact(request):
 #     return render(request, 'detailProduct.html', context)
 
 def detailProduct(request, slug):
-    categories = Category.objects.all()
     productDetail = Product.objects.get(product_slug=slug)
-    context = {"productDetail":productDetail, "categories": categories }
+    context = {"productDetail":productDetail}
     return render(request, 'detailProduct.html', context)
 
 def detailCategory(request, id):
-    categories = Category.objects.all()
     categoryDetail = Category.objects.get(pk=id)
     categoryProducts = Product.objects.filter(product_category=categoryDetail)
-    context = {"categoryDetail": categoryDetail, "categories": categories, "categoryProducts": categoryProducts }
+    context = {"categoryDetail": categoryDetail, "categoryProducts": categoryProducts }
     return render(request, "detailCategory.html", context)
 
 
 # Auth
 # Funksioni i regjistrimit
 def register(request):
-    categories = Category.objects.all()
     context = {"cat": categories}
     # Marrja e informacioneve
     if request.method == "POST":
@@ -103,7 +113,6 @@ def register(request):
 
 
 def login(request):
-    categories = Category.objects.all()
     context = {"categories": categories}
     # marrja e te dhenave nga forma
     if request.method == "POST":
@@ -133,6 +142,5 @@ def logout(request):
 # Nuk e akseson faqen nese nuk je i log-uar
 @login_required(login_url="/login/")
 def accessLogin(request):
-    categories = Category.objects.all()
     context = {"categories": categories}
     return render(request, "accessLogin.html", context)
